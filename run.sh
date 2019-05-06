@@ -1,13 +1,13 @@
 #/bin/env bash
 
-declare -a projects=("scala-finch-circe")
+declare -a projects=("scala-finch-circe" "python-flask-gunicorn")
 
 for project in "${projects[@]}"
 do
     echo "Building docker image for project $project!"
     echo "Running: <docker build -t $project $project>"
     
-    # docker build -t $project $project
+    docker build -t $project $project
     
     sleep 1;
     
