@@ -1,0 +1,37 @@
+60 sec
+
+Scala:
+     50%  619.00us
+     75%   27.93ms
+     90%   53.44ms
+     99%   79.45ms
+    867711 requests in 1.00m, 110.89MB read
+    Requests/sec:  14449.01
+
+Python-Flask-Gunicorn:
+    eventlet:
+            50%    4.13ms
+            75%   75.50ms
+            90%  317.20ms
+            99%    1.10s 
+        118653 requests in 1.00m, 19.58MB read
+        Socket errors: connect 0, read 5, write 0, timeout 17
+    gevent:
+            50%    1.17ms
+            75%   72.24ms
+            90%  369.33ms
+            99%    1.35s 
+        154606 requests in 1.00m, 25.51MB read
+        Socket errors: connect 0, read 0, write 0, timeout 94
+    gthread:
+            50%    8.09ms
+            75%   36.53ms
+            90%   59.38ms
+            99%   72.69ms
+        122008 requests in 1.00m, 20.13MB read
+    sync:
+            50%    9.90ms
+            75%   21.07ms
+            90%   38.89ms
+            99%   61.92ms
+        125156 requests in 1.00m, 20.05MB read      

@@ -65,7 +65,7 @@ backlog = 2048
 #       A positive integer. Generally set in the 1-5 seconds range.
 #
 
-workers = 2
+workers = 5
 worker_class = 'sync'
 worker_connections = 1000
 timeout = 30
