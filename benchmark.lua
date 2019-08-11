@@ -1,3 +1,5 @@
+-- WRK doesn't work well with uWSGI
+
 -- example HTTP POST script which demonstrates setting the
 -- HTTP method, body, and adding a header
 

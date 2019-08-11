@@ -1,9 +1,10 @@
 #/bin/env bash
 
-declare -a projects=("scala-finch-circe" "python-flask-gunicorn" "python-flask-uwsgi")
-# declare -a projects=("scala-finch-circe")
+# declare -a projects=("scala-finch-circe" "python-flask-gunicorn" "python-flask-uwsgi")
+declare -a projects=("python-flask-uwsgi")
 
-RUN_TIME=60
+RUN_TIME=20s
+CONNECTIONS=200
 
 for project in "${projects[@]}"
 do
@@ -22,7 +23,7 @@ do
     
     echo "Running actual benchmark for ${RUN_TIME}s!"
     
-    WRK_REPORT=${project}-$(date +"%m-%d-%Y-%T").csv wrk -t4 -c24 -d${RUN_TIME}s --latency -s benchmark.lua http://localhost:8080/benchmark
+    ./bombardier-linux-amd64 -c ${CONNECTIONS} -d ${RUN_TIME} -l http://localhost:8080/benchmark
     
     echo "Cleaning up!"
     docker rm $(docker stop -t 1 ${project})
