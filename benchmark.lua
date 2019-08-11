@@ -1,8 +1,7 @@
 -- example HTTP POST script which demonstrates setting the
 -- HTTP method, body, and adding a header
 
-wrk.method = "POST"
-wrk.body   = "[1,2,3,4,5]"
+wrk.method = "GET"
 wrk.headers["Content-Type"] = "application/json"
 
 -- wrk report to output CSV
