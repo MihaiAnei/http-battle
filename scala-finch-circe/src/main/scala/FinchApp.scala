@@ -11,8 +11,8 @@ import scala.util.Random
 object FinchApp extends App with Endpoint.Module[IO] {
   val random: Random = new Random()
 
-  val api: Endpoint[IO, Int] = get("benchmark") {
-    Ok(random.nextInt(999))
+  val api: Endpoint[IO, Unit] = get("benchmark") {
+    Ok()
   }
 
   val service = api.toServiceAs[Application.Json]

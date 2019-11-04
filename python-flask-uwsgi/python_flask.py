@@ -9,7 +9,7 @@ api = Api(app)
 
 class Benchmark(Resource):
     def get(self):
-        return random.randint(0, 999), 200
+        return 200
 
 
 api.add_resource(Benchmark, "/benchmark")

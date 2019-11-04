@@ -1,10 +1,10 @@
 #/bin/env bash
 
-# declare -a projects=("scala-finch-circe" "python-flask-gunicorn" "python-flask-uwsgi")
-declare -a projects=("python-flask-uwsgi")
+declare -a projects=("scala-finch-circe" "python-flask-gunicorn" "python-flask-uwsgi" "fastapi-uvicorn")
+# declare -a projects=("fastapi-uvicorn")
 
-RUN_TIME=20s
-CONNECTIONS=200
+RUN_TIME=60s
+CONNECTIONS=100
 
 for project in "${projects[@]}"
 do
@@ -17,7 +17,7 @@ do
     
     echo "Starting up docker container for $project!"
     
-    docker run --name $project -d -p 8080:8080 --memory=1g --cpus=2 $project:latest
+    docker run --name $project -d -p 8080:8080 --memory=1g --cpus=1 $project:latest
 
     sleep 5;
     
