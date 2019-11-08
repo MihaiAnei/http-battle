@@ -1,0 +1,1 @@
+1. Add NGINX in front of uWSGI and benchmark then  
